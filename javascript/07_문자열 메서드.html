@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07_문자열 메서드.html</title>
+</head>
+<body>
+
+    <h3># 자바스크립트에도 문자열 다루는 메서드들이 있다</h3>
+
+    <div id="out"></div>
+
+    <script>
+        // 함수
+        function print(text) {
+            document.getElementById('out').innerHTML += text + '<br>';
+        }
+
+        const message = 'apple/banana/orange/kiwi/melon';
+
+        // length : 문자열의 길이
+        print('length: ' + message.length);
+        // substring, slice
+        print('substring: ' + message.substring(4, 10));
+        print('slice: ' + message.slice(10)); // 앞에서부터 10글자 자르기
+        print('slice: ' + message.slice(-5)); // 뒤에서 부터 5글자 자르기
+
+        // message라는 인스턴스 안에 딸려있는 메서드(.toUpperCase, .toLowerCase)
+        // toUpperCase, toLowerCase
+        print('toUpperCase: ' + message.toUpperCase()); // 모두 대문자로 바꾸기
+        print('toLowerCase: ' + message.toLowerCase()); // 모두 대문자로 바꾸기
+
+        // indexOf : 0번부터 시작
+        print('indexOf: ' + message.indexOf('w')); // w의 위치
+        print('indexOf: ' + message.indexOf('a')); // a의 위치
+        print('indexOf: ' + message.indexOf('a', 1)); // 검사 시작 위치 설정 (1번 a부터)
+
+
+        // includes
+        print('includes pineapple? : ' + message.includes('pineapple')); // message 안에 pineapple이 있나요?
+        print('includes apple? : ' + message.includes('apple')); // message 안에 apple이 있나요?
+        
+        // 이 외에도 많은 문자열 메서드들이 있다
+   </script>
+    
+</body>
+</html>

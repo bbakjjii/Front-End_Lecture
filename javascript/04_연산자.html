@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_연산자.html</title>
+</head>
+<body>
+
+    <h3># Javascript 산술 연산</h3>
+    
+    <ul>
+        <li>나누기만 약간 주의할 것 (몫을 구할 때 parseInt 사용)</li>
+    </ul>
+
+    <h3># Javascript 비교 연산</h3>
+
+    <ul>
+        <li>Java와 몇 개 빼고 다 똑같다</li>
+        <li>==, != : 값이 일치(불일치)하면 true, 타입을 신경쓰지 않음</li>
+        <li>===, !== : 값이 일치(불일치)하면 true, 타입을 신경씀</li>
+    </ul>
+
+    <script>
+        console.log('1 == 1 ? ', 1 == 1);
+        console.log('\'1\' == 1 ? ', '1' == 1);
+
+        console.log('1 != 1 ? ', 1 != 1);
+        console.log('\'1\' != 1 ? ', '1' != 1);
+
+        console.log('---------------');
+
+        console.log('1 === 1 ? ', 1 === 1);
+        console.log('\'1\' === 1 ? ', '1' === 1);
+
+        console.log('1 !== 1 ? ', 1 !== 1);
+        console.log('\'1\' !== 1 ? ', '1' !== 1);
+
+        console.log('---------------');
+
+        console.log(10 + 7);
+        console.log(10 - 7);
+        console.log(10 * 7);
+
+        // 몫만 구하는 방법이 없음 (무조건 정확한 계산)
+        // Java에서는 10/7.0 해야 소수점이 나왔다. Javascript에서는 소수점 안 넣어도 소수점까지 나온다.
+        console.log(10 / 7);
+        console.log(10 / '7'); // 근본x. Javascript에서는 작은따옴표를 넣어도 계산이 가능함
+        console.log('10' / '7'); // 근본x. Javascript에서는 계산 가능
+        
+        // parseInt 함수로 소수점 제거하여 몫만 구하기
+        console.log('몫 : ', parseInt(10 / 7));
+        console.log(10 % 7); // 나머지 구하기
+
+    </script>
+    
+</body>
+</html>

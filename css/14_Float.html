@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14_Float.html</title>
+    <link rel="stylesheet" href="./sheets/css14.css">
+</head>
+<body>
+    
+<h3># Float</h3>
+
+<ul>
+    <li>다른 내용들이 해당 요소를 비켜가게 만든다 
+        (냇가에 커다란 돌 같은 느낌)
+    </li>
+    <li>
+        clear 속성을 사용하면 clear를 설정한 해당 요소 옆에 
+        다른 float 요소가 올 수 없도록 막을 수 있다
+    </li>
+    <li>요소 내부에서 float을 사용한 경우 
+        float 요소에 대한 높이를 인식하지 못하는 문제를 
+        clear:both를 통해 해결해 줄 수 있다
+    </li>
+</ul>
+
+<div style="border:solid 1px" id="paragraph01">
+    <!-- 이미지는 글자처럼 취급 받는다 -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Antarctica_2013_Journey_to_the_Crystal_Desert_%288370623298%29.jpg/250px-Antarctica_2013_Journey_to_the_Crystal_Desert_%288370623298%29.jpg" alt="아델리펭귄">
+    <img src="https://img.khan.co.kr/news/2019/05/10/l_2019051001001084400084821.jpg" alt="황제펭귄">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in tempus ipsum. Curabitur sit amet placerat velit, id dapibus ligula. Sed iaculis pellentesque feugiat. Phasellus aliquet interdum risus, eu malesuada odio hendrerit ut. Pellentesque ac ante sagittis, pellentesque ipsum vel, rhoncus turpis. Maecenas et pretium quam. Duis eget nulla eu velit sollicitudin molestie. Maecenas elementum lectus ut eros convallis, volutpat cursus nulla hendrerit. Vivamus et gravida turpis. Nam sodales purus sed erat pellentesque, ut consectetur diam lacinia. Phasellus nec arcu vitae augue lacinia vehicula. Pellentesque cursus porttitor metus vitae ornare. Donec in varius dolor. Phasellus tristique leo eget placerat consectetur.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in tempus ipsum. Curabitur sit amet placerat velit, id dapibus ligula. Sed iaculis pellentesque feugiat. Phasellus aliquet interdum risus, eu malesuada odio hendrerit ut. Pellentesque ac ante sagittis, pellentesque ipsum vel, rhoncus turpis. Maecenas et pretium quam. Duis eget nulla eu velit sollicitudin molestie. Maecenas elementum lectus ut eros convallis, volutpat cursus nulla hendrerit. Vivamus et gravida turpis. Nam sodales purus sed erat pellentesque, ut consectetur diam lacinia. Phasellus nec arcu vitae augue lacinia vehicula. Pellentesque cursus porttitor metus vitae ornare. Donec in varius dolor. Phasellus tristique leo eget placerat consectetur.
+    <!-- <div style="clear: both;"></div>--> 
+    <!-- 현재 상태에서는 both, right 모두 가능. 양쪽에 float요소가 없기 때문에 요소를 완벽하게 마감한다-->
+    <!-- float을 사용한 후에는 마감처리가 필요하다-->
+</div>
+
+<hr>
+
+<div style="border: solid 1px black;" id="paragraph02">
+<div>1</div>
+<div>2</div>
+<div>3</div>
+<div>4</div>
+<div>5</div>
+<div>6</div>
+</div>
+
+</body>
+</html>

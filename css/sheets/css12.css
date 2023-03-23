@@ -1,0 +1,43 @@
+#out{
+    font-size: 35px;
+}
+
+#out > span:first-child {
+    color:red;
+}
+
+/* 요소의 특정 상태를 나타내는 Pseudo Class : 상태가 변함에 따라 스타일을 준다 */
+#out > span:last-child{
+    color:goldenrod;
+}
+
+/* hover: 해당 요소에 마우스가 올라갔을 때만 선택 */
+#out > span:hover {
+    color:aquamarine;
+    font-size: 1.2em;
+}
+
+/* active : 해동 요소가 클릭 되어 활성화 된 상태의 스타일 */
+#out > span:active {
+    color : yellow;
+    font-size: 1.2em;
+}
+
+/* link : 해당 요소가 방문한적 없는 상태인 링크일 때의 스타일 */
+a:link {
+    color:green;
+}
+
+/* visited : 해당 요소가 방문한적 있는 상태인 링크일 때*/
+a:visited {
+    color:green;
+}
+
+a:hover{
+    color:red;
+}
+
+a:active {
+    color: yellow;
+}
+

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_선택자.html</title>
+    <style>
+        li {
+            color:red;
+        }
+
+        #li02 {
+            color:blue;
+        }
+
+        * {
+            font-size: 1.0em; /* 1.2em를 입력하면 모든 요소에 대하여 기본크기 보다 1.2배 키운다 */
+        }
+
+        div {
+            border : solid 3px black;
+            padding : 5px; /* 좌우 여백 */
+            margin : 5px; /* 상하 여백 */
+            min-height : 100px /* 최소 높이 : 아무리 쪼그라들어도 100이하로는 쪼그라들 수 없다*/
+        }
+
+        #para01 div { 
+            /* para01 > div : para01이 아닌 para01의 자식을 선택한다*/
+            /* para01 div : para01이 아닌 para01의 자식 포함 모든 자손을 선택한다*/
+            border-color: red;
+            border-style:dashed;
+        }
+
+        #li01, #li02{
+            /* #li01 #li02 또는 #li01 > #li02은 아무일도 일어나지 않는다.
+            #li01안에 든 #li02는 없기 때문에 */
+            background-color: peru;
+        }
+
+        /* 클래스는 한 요소에 여러개 설정할 수 있다 */
+        .large-font{
+            font-size:30px;
+        }
+
+        /* forbidden : 금지된 */
+        .forbidden {
+            text-decoration: black solid 2px line-through;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <h3 class="large-font"># 선택자를 잘 사용해 원하는 요소를 정확하게 선택할 수 있어야 한다</h3>
+    
+    <ul>
+        <li id="li01">tagname : 해당 HTML 태그를 모두 선택한다</li>
+        <li id="li02"># id : 해당 ID속성을 지닌 요소만 선택한다</li>
+        <li>.className : 해당 class 속성을 지닌 요소들을 모두 선택한다</li>
+        <li>* : 모두 선택</li>
+        <li>&gt; : 자식 요소만 선택</li>
+        <li>공백 : 자식을 포함한 모든 자손 요소를 선택</li>
+        <li>, : 여러개의 선택자를 한번에 사용</li>
+    </ul>
+
+    <!-- div : 아무 기능 없이 영역을 지정하고 싶을 때 사용하는 태그-->
+    <div id="para01">
+        문단1
+        <div class="large-font">
+            문단1-1
+            <div class="large-font forbidden"> 
+                <!-- 띄어쓰기를 이용해 한 요소에 여러 클래스를 설정할 수 있다-->
+                문단1-1-1
+            </div>
+        </div>
+        <div>
+            문단1-2
+        </div>
+    </div>
+
+    <a class="forbidden" href="https://flukeout.github.io/">CSS Diner</a>
+
+</body>
+</html>

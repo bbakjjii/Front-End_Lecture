@@ -1,0 +1,61 @@
+* {
+    box-sizing: border-box;
+}
+
+div {
+    border: solid black 1px;
+    padding: 3px;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.flex-container > div {
+    width: 25%;
+}
+
+h5 {
+    margin-bottom: 3px;
+}
+
+#container2 {
+    flex-direction: row; 
+}
+
+#container3 {
+    flex-direction: row-reverse; 
+}
+
+#container4 {
+    flex-direction: column; 
+}
+
+#container5 {
+    flex-direction: column-reverse; 
+}
+
+
+/* 25%를 넘어버리는 이유 : padding이 있어서 줄 바꿈이 되어버린다. 
+그렇기 때문에 모든(*) 요소에 대하여 box-sizing을 설정한다. */
+#flex-wrap1 {
+    flex-wrap: wrap;
+}
+
+#flex-wrap2 {
+    flex-wrap: wrap-reverse;
+}
+
+#flex-wrap2 {
+    flex-wrap: nowrap;
+}
+
+#flex-wrap4 {
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 300px;
+}
+
+#flex-wrap4 > div {
+    height: 25%;
+}

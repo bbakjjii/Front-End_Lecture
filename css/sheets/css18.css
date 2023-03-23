@@ -1,0 +1,37 @@
+* {
+    box-sizing: border-box;
+}
+
+div { /* 안쪽 번호붙은 박스가 div */
+    border: 1px solid black;
+    padding: 3px;
+}
+
+body {
+    margin: 0;
+}
+
+.grid-container { /* 바깥 네모박스가 grid-container*/
+    display: grid;
+}
+
+#container1 {
+    /*
+        컬럼이ㅡ 크기에 사용할 수 있는 단위들
+        
+        - 일반 단위들 : %, px, 등등...
+        - fr : 칸을 의미한다 (1fr은 한 칸)
+        - auto : 알아서 균등하게 배분한다 (fr과 함께 쓰면 난리난다)
+    */
+
+    /* 20%, auto : column(가로, 너비) 2개가 하나는 20%, 하나는 80%(자동)로 설정됨 */
+    /* 1fr 3fr 1fr : 1대 3대 1의 비율로 나눈다 */
+    /* 1fr 50px 3fr 1fr : 1대 50px 3대 1 */
+    /* 50px auto auto atuo : 50px 나머지 3개는 자동으로 균등하게 배분*/
+    /* 100px 1fr 1fr 1fr : 100px 1대 1대 1*/
+    grid-template-columns: 100px 1fr 1fr 1fr; /* 컬럼의 개수와 각 컬럼의 크기를 지정 */
+    grid-template-rows: 100px 200px 100px; /* 각 행의 높이(세로)를 지정 */
+    column-gap: 10px; /*각 column(열, 가로, 너비) 사이의 간격*/
+    row-gap: 20px; /* 각 row(행, 세로, 높이) 사이의 간격 */
+    padding: 10px; /* 전체 div의 바깥과 grid-container 사이의 여백 */
+}

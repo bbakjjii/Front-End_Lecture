@@ -1,0 +1,59 @@
+* {
+    box-sizing: border-box;
+}
+
+.rect {
+    border: solid 3px black;
+    width: 100px;
+    height: 100px;
+    color: white;
+}
+
+#div1 {
+    background-color: red;
+    position: absolute;  /* absolute - 포지션이 설정된 부모 요소 내부에서 절대적인 위치를 선정 */
+    top: 100px;
+    left: 100px;
+    z-index: -1; /* -1을 함으로써 배경으로 깔기게 됨 */
+    opacity: 0.7; /* opacity - 불투명도 (1.0이면 불투명 상태, 0이면 완전 투명) */
+}
+
+#div2 {
+    background-color: orange;
+    position: relative; /* relative - 원래 위치로부터 상대적인 위치를 설정 */
+    left: 50px; /* 원래 위치에서 왼쪽으로 50px만큼 떨어졌다 */
+    top: 50px; /* 원래 위치에서 위로부터 50px만큼 떨어졌다 */
+    z-index: 1; /*판의 높낮이 설정 (z축(세로) x축(가로) y축(너비?)*/
+}
+
+#div3 {
+    background-color: green;
+    /* 포지션이 설정된 것들끼리는 기본적인 순서로 정렬된다. */
+    position: relative; /* 나중에 나온 놈이 덮어쓴다 */
+    left: 100px;
+    z-index: 0; /* z-index의 기본값은 0이다. */
+}
+
+body {
+    margin: 0; /*body의 margin을 없애줘야 페이지 양끝에 딱 붙는다 */
+}
+
+.header {
+    width: 100%;
+    background-color: white;
+    border: solid 3px black;
+    position: sticky; /* sticky - 스크롤이 변할 때 고정될 위치를 설정 */
+    height: 50px;
+    font-size: 20px;
+    top: 0px; /* 꼭대기에 붙어서 따라온다 */
+    z-index: 2;
+}
+
+#div4 {
+    background-color: white;
+    padding: 10px;
+    font-size: 45px;
+    position: fixed; /* fixed - viewport에서 고정되는 위치를 설정 (원래 위치에서 고정) */
+    bottom: 20px; /* 하단에서 20px 떨어진 곳에 고정 */
+    right: 20px; /* 오른쪽에서 20px 떨어진 곳에 고정 */
+}

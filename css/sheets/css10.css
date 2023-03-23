@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caramel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caramel&family=East+Sea+Dokdo&family=Inspiration&family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caramel&family=Inspiration&family=Russo+One&display=swap');
+
+
+
+#font1 {
+    /* 
+        글꼴, 예비 글꼴을 여러개 설정할 수 있다
+        예비 글꼴은 원래 글꼴과 크기가 같은 글꼴을 사용하는 것이 좋다.
+    */
+    font-family: '궁서채', '바탕채', '굴림';
+    font-size: 35px;      /* 글꼴 크기 */
+    font-weight: 900;     /* 글꼴 굵기 : 100 ~ 900까지 있음*/
+    font-style: italic;   /* 기울임 설정 */
+}
+
+#font2 {
+    /* Rubik Bubbles와 cursive는 차지하는 영역이 동일하기 때문에 
+    글꼴이 바뀌더라도 흐트러지지 않게 설정되어 있다 */
+    font-family: 'Rubik Bubbles', cursive;
+    font-size: 55px;
+}
+
+
+#font3 {
+    
+    color:rgb(175, 98, 5);
+    font-family: 'Caramel', cursive;
+    font-weight: 900;     /* 글꼴 굵기 : 100 ~ 900까지 있음*/
+    font-size: 80px;
+    text-shadow: 1px 1px #ebb9727c, 2px 2px #a4854c, 3.5px 3.5px #822d2f; 
+    display: block;
+    margin: 11px 0 17px 0;
+    font-size: 80px;
+    line-height: 80px;
+    color: #503113;
+    text-shadow: 0 13.36px 8.896px #c4b59d,0 -2px 1px #fff;
+    letter-spacing: -4px;
+}
+
+#font4 {
+    color:rgb(20, 131, 175);
+    font-family: 'East Sea Dokdo', cursive;
+    font-size: 40px;
+    font-weight: 900;
+    text-shadow: 1px 1px #a1e7f57c, 2px 2px #7cd9f1, 3.5px 3.5px #387eba; 
+}
+
+#font5 {
+    color:green;
+    font-family: 'Russo One', sans-serif;
+    font-size: 40px;
+    background: green;
+        background: -webkit-linear-gradient(left, #f5cfa9, #a05b00);
+        background:    -moz-linear-gradient(right, #f5cfa9, #a05b00);
+        background:      -o-linear-gradient(right, #f5cfa9, #a05b00);
+        background:         linear-gradient(to right, #f5cfa9, #a05b00);
+        -webkit-background-clip: text;
+                background-clip: text;
+        color: transparent;
+        font-weight: bold;
+}

@@ -1,0 +1,59 @@
+/* 1. grid-area로 grid-item들의 변수명을 설정 */
+#header {
+    background-color: navy;
+    color: white;
+    grid-area: header;
+}
+
+#hero {
+    background-color: rgb(76 135 198);
+    color: white;
+    grid-area: hero;
+}
+
+#menu {
+    background-color: rgb(242 60 79);
+    color: white;
+    grid-area: menu;
+}
+
+#main {
+    background-color: rgb(28 51 77);
+    color: white;
+    grid-area: main;
+}
+
+#banner {
+    background-color: rgb(255 209 107);
+    color: black;
+    grid-area: banner;
+}
+
+#extra {
+    background-color: rgb(80 187 154);
+    color: black;
+    grid-area: extra;
+}
+
+#image {
+    background-color: rgb(194 229 230);
+    color: black;
+    grid-area: image;
+}
+
+#container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 10% 2fr 2fr 1fr 1fr;
+    height: 800px;
+    width: 1100px; /* 데스크탑이니까 너비만 넓어졌다고 가정*/
+    font-size: 35px;
+
+    /* grid-area로 설정한 변수들을 가지고 직접 grid-template-areas를 설정 */
+    grid-template-areas: 
+        "header menu menu"
+        "hero hero hero"
+        "main main image"
+        "main main extra" 
+        ". banner banner"; /* .을 쓰면 빈칸(안 쓰는 부분)이 된다 */
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12_DOM.html</title>
+</head>
+<body>
+
+    <h3>#Document Object Model (DOM)</h3>
+
+    <ul>
+        <li>웹 브라우저가 HTML코드를 해석하여 생성하는 객체</li>
+        <li>DOM을 통해 HTML의 모든 요소에 접근할 수 있다</li>
+    </ul>
+
+    <h3># DOM의 유용한 메서드들</h3>
+    <ul>
+        <li id="test">document.getElementById(id)</li>
+        <li class="red">document.getElementsByTagName(tagName)</li>
+        <li class="blue big">document.getElementsByClassName(className)</li>
+        <li class="big">document.querySelector(cssSelector)</li>
+        <li class="big important">document.querySelectorAll(cssSelector)</li>
+    </ul>
+
+    <h3># 선택한 HTML 요소를 변경하는 방법</h3>
+    <ul>
+        <li>아래의 내용을 통틀어서 Document Object Model이라고 한다</li>
+        <li>element.innerHTML : tag 사용 가능</li>
+        <li>element.innerText : tag 사용 불가능</li>
+        <li>element.attributeName : 해당 요소의 속성에 접근</li>
+        <li>element.setAttribute() : 메서드를 통해 해당 요소의 속성을 수정</li>
+        <li>element.addEventListener() : 메서드를 통해 해당 요소에 이벤트를 설정</li>
+        <li>element.style.propertyName : 해당 요소의 CSS값을 직접 수정</li>
+    </ul>
+
+    <img id="img" src="" alt="nothing" width="200">
+
+    <div id="out"></div>
+
+    <input id="cmd" type="text">
+
+    <script>
+        // console.log(document);
+        // console.dir(document); // 디렉토리 방식으로 콘솔에 출력하는 메서드
+        // 웹브라우저 콘솔창의 [prototype] : 클래스의 원형
+
+        // 해당 태그인 모든 요소를 가져오는 메서드
+        const uls = document.getElementsByTagName('ul');
+
+        // 해당 클래스를 지닌 모든 요소를 가져오는 메서드
+        const bigs = document.getElementsByClassName('big');
+
+        // CSS Selector를 이용해 원하는 요소를 하나만 선택할 수 있음
+        const test = document.querySelector('#test');
+
+        // CSS Selector를 이용해 원하는 요소를 여러개 선택할 수 있음
+        const listItems = document.querySelectorAll('ul > li:nth-child(2)'); //ul 내부의 li 중에 nth-child(2)
+       
+        console.log(uls);
+        console.log(bigs);
+        console.log(test);
+        console.log(listItems[0]);
+        console.log(listItems[1]);
+
+        const out = document.querySelector('#out');
+        const cmd = document.querySelector('#cmd');
+        const img = document.querySelector("#img");
+
+        out.style = "color: red;"; // style 속성의 역할 (글씨색을 빨간색으로 바꿔줌)
+        // out.onclick = function () {
+        //     alert(out.innerHTML) // 속성에 접근하는 방법
+        // };
+
+        const imageList = [
+            'https://img.gqkorea.co.kr/gq/2019/10/style_5db1178350382.jpg',
+            'https://dimg.donga.com/wps/NEWS/IMAGE/2019/12/22/98915688.2.jpg',
+            'http://economychosun.com/query/upload/322/20191103221129_fgyjnwts.jpg'
+        ];
+
+        // 키를 누를 때마다 console창에 이벤트가 발생한다
+        cmd.addEventListener('keydown', (e) => {
+            //console.log(e);
+
+            const getRandomImage = () => imageList[parseInt(Math.random() * imageList.length)];
+
+            switch(e.keyCode) {
+                case 13:
+                    console.log('Enter Key has been pressed');
+                    // input 태그들은 innerHTML/Text가 아니라 value를 변경해야 한다
+                    out.innerHTML += `<div>you : ${cmd.value}</div>` // HTML에 값이 추가된다.
+                    cmd.value = ''; // 엔트키가 눌렸을 때 cmd.value의 값은 비게 된다
+                    // img.src = getRandomImage();
+                    img.setAttribute('src', getRandomImage());
+                    break;
+                default:
+                    console.log('Other Key has been pressed');
+                    break;
+            }
+        });
+   </script>
+</body>
+</html>

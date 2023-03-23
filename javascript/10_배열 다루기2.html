@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10_배열 다루기2.html</title>
+    <style>
+        /*원래는 스타일과 스크립트는 다른 파일에 있어야 함 */
+        * {
+            box-sizing: border-box;
+        }
+
+        #all-students {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            column-gap: 5px; /* 여백 */
+        }
+
+        #avg-students {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 5px;
+            width: 50%;
+        }
+
+        #danger-students {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            column-gap: 5px;
+        }
+
+        .danger {
+            color: red;
+            font-weight: bold;
+            text-decoration: red 1px double underline;
+        }
+
+        .header {
+            background-color: black;
+            color: white;
+        }
+
+        .data {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="all-students">
+        <div class="header">번호</div>
+        <div class="header">이름</div>
+        <div class="header">국어</div>
+        <div class="header">영어</div>
+        <div class="header">수학</div>
+        <div class="header">별점</div>
+    </div>
+
+    <div id="avg-students">
+        <div class="header">번호</div>
+        <div class="header">이름</div>
+        <div class="header">평균</div>
+    </div>
+
+    <div id="danger-students">
+        <div class="header">번호</div>
+        <div class="header">이름</div>
+        <div class="header">국어</div>
+        <div class="header">영어</div>
+        <div class="header">수학</div>
+        <div class="header">별점</div>
+    </div>
+
+    <script>
+
+        console.log('----------forEach ----------');
+
+        // 배열에 1부터 100까지의ㅣ 랜덤 숫자 10개 넣기
+        function getRandomScore() { // function : 자바의 메서드 역할
+            return parseInt(Math.random() * 101);
+        }
+
+        const scores = [];
+
+        for (i = 0; i < 10; ++i) {
+            scores[i] = getRandomScore();
+        }
+
+        console.log(scores);
+
+        // * 자바스크립트는 함수를 변수에 저장할 수 있다
+        // 익명함수 : 이렇게 선언할 때는 함수명을 생략해도 된다(원래 function myFunction이었다)
+        // myFunc이 함수 그 자체가 된다.
+        const myFunc = function (value, index, array) {
+            // console.log('이번에 처리해야 하는 값(value) : ', value);
+            // console.log('현재 인덱스(index): ', index);
+            // console.log('전체 배열(array) : ', array);
+            console.log(`${index}번째 학생의 점수: ${value}`);
+        };
+
+        // 배열.forEach : 배열의 모든 값을 가지고 전달한 함수의 동작을 수행한다
+        // * 변수에 저장된 함수를 전달할 수 있다
+        scores.forEach(myFunc);
+
+        console.log('==========');
+        // * 변수(myFunc)에 저장된 함수를 forEach 함수의 인자값으로 전달할 수 있다
+        myFunc(3, 99, [1, 2, 3]);
+        console.log('==========');
+
+        console.log('----------★ 메서드 사용법 ----------');
+        // ★ 메서드 사용법
+        const a = function (a, b, c) {
+            console.log('Hello!');
+        };
+
+        a(1, 2, 3);
+
+        // 배열.map : map에 전달한 함수의 결과값들로 
+        //           만들어진 새로운 배열을 생성한다
+        const newMapArray = scores.map(function (value, index) {
+            return value * 2; // 1~100사이로 만든 랜덤값을 2배로 나오게 한다.
+        });
+
+        console.log(newMapArray);
+
+        console.log('----------연습문제1 ----------');
+        // 연습문제 1 : socres 배열을 이용해 grades 배열을 생성해보세요
+        // 강사님 정답
+        const grades = scores.map(function (score) {
+            let grade = 'F';
+            if (score >= 90) {
+                grade = 'A';
+            } else if (score >= 80) {
+                grade = 'B';
+            } else if (score >= 70) {
+                grade = 'C';
+            } else if (score >= 60) {
+                grade = 'D'
+            }
+
+            return {
+                stu_score: score,
+                stu_grade: grade
+            };
+        });
+        console.log('grades2의 값 : ', grades); // 점수와 등급이 함께 들어있다. (object타입으로 저장)
+        console.log('grades2의 값 : ', grades[0].stu_score);
+        console.log('grades2의 값 : ', grades[0].stu_grade);
+
+        console.log('---------- 배열.filter() ----------');
+        // 배열.filter() : 전달한 함수에서 true를 리턴한 값만 남기는 함수
+        // C~D등급의 학생들만 모집해서 보충 인원을 꾸리고 싶다.
+        const filteredStudents = grades.filter(function (value){
+            return value.stu_grade === 'C' || value.stu_grade === 'D';
+        });
+
+        console.log('전체 학생 : ', grades);
+        console.log('C 또는 D인 학생 : ', filteredStudents);
+
+        console.log('---------- 배열.reduce() ----------');
+        // 배열.reduce() : 배열의 모든 값을 이용해 하나의 결과를 낼 수 있는 함수
+        console.log(scores);
+
+        // scores의 총합 찾기
+        const total = scores.reduce(function (previousValue, currentValue, index) {
+            console.log(`[${index}번째 reduce]`);
+            console.log(`여태까지의 합 : ${previousValue}`);
+            console.log(`이번에 더할 값 : ${currentValue}`);
+            // return previousValue + currentValue; // score의 총합
+        });
+        console.log(total); // scores의 총합
+
+        // scores 중 가장 작은값 찾기
+        const smallestValue = scores.reduce(function (previousValue, currentValue, index) {
+            console.log(`[${index}번째 reduce]`);
+            console.log(`현재까지 가장 작은 값 : ${previousValue}`);
+            console.log(`이번에 비교할 값 : ${currentValue}`);
+            // previousValue가 더 작으면 previousValue를 남기겠다
+            return previousValue < currentValue ? previousValue : currentValue; 
+        });
+        console.log(smallestValue); // previousValue와 currentValue 중 작은값(?)
+
+        console.log('---------- 연습문제2 ----------');
+        /*
+            (1) 학생 번호, 학생 이름, 국/영/수 랜덤 점수를 가진 
+                학생 100명의 자바스크립트 오브젝트 배열을 생성    
+            (2) 모든 학생들의 평균 점수들로 이루어진 배열을 생성
+            (3) 수학 점수가 60점 이하인 학생들로만 이루어진 배열을 생성
+            (4) 학생들의 급식 만족도의 평균을 구할 것
+            (1), (2), (3), (4)를 모두 html에 보기좋게 출력할 것
+        */
+
+        // 강사님 정답
+        let studentNumber = 1;
+
+        const lastNames = ['고', '강', '김', '구', '권', '노', '이', '최', '박', '배'];
+        const firstNames = ['태현', '태희', '태식', '민식', '현수', '민수'];
+
+        const getRandomName = function () {
+            return lastNames[parseInt(lastNames.length * Math.random())]
+                + firstNames[parseInt(firstNames.length * Math.random())];
+        };
+
+        const getRandomStudent = function () {
+            return {
+                num: studentNumber++,
+                name: getRandomName(),
+                kor: getRandomScore(),
+                eng: getRandomScore(),
+                math: getRandomScore(),
+                star: parseInt(Math.random() * 5 + 1)
+            };
+        };
+
+        const students = [];
+
+        for (i = 0; i < 100; ++i) {
+            students.push(getRandomStudent());
+        }
+
+        const grid1 = document.getElementById('all-students');
+
+        // => : Arrow Fucntion
+        students.forEach((stu) => {
+            grid1.innerHTML += `<div class="data">${stu.num}</div>`;
+            grid1.innerHTML += `<div class="data">${stu.name}</div>`;
+            grid1.innerHTML += `<div class="data">${stu.kor}</div>`;
+            grid1.innerHTML += `<div class="data">${stu.eng}</div>`;
+            grid1.innerHTML += `<div class="data">${stu.math}</div>`;
+            grid1.innerHTML += `<div class="data">${stu.star}</div>`;
+        });
+
+        const studentAvgs = students.map((stu) => {
+            return {
+            num: stu.num,
+            name: stu.name,
+            avg: (stu.kor + stu.eng + stu.math) / 3
+            };
+        });
+
+        const grid2 = document.getElementById('avg-students');
+        studentAvgs.forEach((stuAvg) => {
+            grid2.innerHTML += `<div class="data">${stuAvg.num}</div>`;
+            grid2.innerHTML += `<div class="data">${stuAvg.name}</div>`;
+            grid2.innerHTML += `<div class="data">${Math.round(stuAvg.avg)}</div>`;
+        });
+
+        const dangerStudents = students.filter((stu) => {
+            return stu.math <= 60;
+        });
+
+        const grid3 = document.getElementById('danger-students');
+        dangerStudents.forEach((dang) => {
+            grid3.innerHTML += `<div class="data">${dang.num}</div>`;
+            grid3.innerHTML += `<div class="data">${dang.name}</div>`;
+            grid3.innerHTML += `<div class="data">${dang.kor}</div>`;
+            grid3.innerHTML += `<div class="data">${dang.eng}</div>`;
+            grid3.innerHTML += `<div class="data danger">${dang.math}</div>`;
+            grid3.innerHTML += `<div class="data">${dang.star}</div>`;
+        });
+
+        // 값을 하나만 주는 함수는 return과 중괄호{}까지 생략 가능하다
+        // return만 하는 함수는 이렇게까지 줄일 수 있다
+        const stars = students.map((stu) => stu.star);
+
+        const totals = stars.reduce((sum, curr) => sum + curr);
+
+        console.log ('평균 별점: ', totals / stars.length);
+    </script>  
+</body>
+</html>

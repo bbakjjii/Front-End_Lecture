@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>16_quiz_홀짝게임.html</title>
+<body>
+
+    <div id="initialcoast"></div>
+
+    <button onclick="startGame();"> GameStart! </button>
+
+
+    <script>
+       const myMoney = document.getElementById('initialcoast');
+
+        const money = prompt('초기 비용을 입력하세요.');
+        localStorage.setItem('money', money);
+
+        myMoney.innerHTML += `<div class="data">사용자의 현재 보유 금액은 : ${money} 입니다</div>`;
+    
+
+    let
+    function startGame(){
+        const number = prompt('홀 또는 짝을 입력하세요.');
+    }
+
+
+    // 컴퓨터에서 랜덤으로 1이나 2를 발생시킴
+    let com = Math.ceil(Math.random() * 2);
+    
+    </script>
+</body>
+</html>

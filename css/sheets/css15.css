@@ -1,0 +1,48 @@
+div { /* div는 기본 : block 상태 */
+    border: solid black 1px;
+}
+
+span { /* span은 기본 : inline 상태 */
+    border: solid black 1px;
+}
+
+.red {
+    color: red;
+    background-color: black;
+}
+
+.important {
+    font-weight: bold;
+}
+
+.inline {
+    display: inline;
+}
+
+.block {
+    display: block;
+}
+
+#ex01 > span { 
+    /* display가 기본적으로 inline이기 때문에 padding과 margin이 잘 적용되지 않는다. */
+    background-color: blue;
+    color: white;
+    padding: 30px;
+    margin: 20px;
+}
+
+#ex02 > span {
+    background-color: orangered;
+    color: white;
+    padding: 30px;
+    margin: 20px;
+    display: block;
+}
+
+#ex03 > span {
+    background-color: darkolivegreen;
+    color: white;
+    padding: 30px;
+    margin: 20px;
+    display: inline-block;
+}

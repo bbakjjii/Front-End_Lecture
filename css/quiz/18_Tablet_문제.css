@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+}
+
+div { /* 안쪽 번호붙은 박스가 div */
+    padding: 3px;
+}
+
+body {
+    margin: 0;
+}
+
+.grid-container { /* 바깥 네모박스가 grid-container*/
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 50px 50px 250px 250px 125px 125px;
+}
+
+#grid {
+    padding: 10px;
+    text-align: center;
+}
+
+#header {
+    grid-area: 2/1/2/5;
+    background-color: black;
+    color: white;
+}
+
+#hero {
+    grid-area: 3/1/4/5;
+    background-color: rgb(76 135 198);
+    color: white;
+}
+
+#menu {
+    grid-area: 4/2/7/1;
+    background-color: rgb(242 60 79);
+    color: white;
+}
+
+#main {
+    grid-area: 4/2/5/5;
+    background-color: rgb(28 51 77);
+    color: white;
+}
+
+#banner {
+    grid-area: 5/2/6/5;
+    background-color: rgb(255 209 107);
+    color: white;
+}
+
+#extra {
+    grid-area: 6/4/6/2;
+    background-color : rgb(80 187 154);
+    color: white;
+}
+
+#image {
+    grid-area: 6/6/6/4;
+    background-color: rgb(194 229 230);
+    color: white;
+}

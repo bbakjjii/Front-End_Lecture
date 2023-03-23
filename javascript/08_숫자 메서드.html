@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08_숫자 메서드.html</title>
+</head>
+<body>
+
+    <h3># 숫자 타입을 다룰 수 있는 메서드들</h3>
+
+    <!-- kdb : 키보드 버튼의 의미를 지닌 태그 -->
+    <kdb>F12</kdb>를 눌러 확인
+
+    <script>
+
+        //parseInt : 어떤 타입이든 숫자로 변환해준다
+        console.log(parseInt('1234')); // 1234는 10진수로 1234
+        console.log(parseInt('1000', 2)); //1000은 2진수로 8
+        console.log(parseInt('ABC', 16)); //ABC는 16진수로 2748
+
+        // 이상한 값을 parseInt() 하는 경우 NaN이 나온다
+        // NaN : Not a Number
+        // NaN은 숫자 타입
+        console.log(parseInt('Hello!!'));
+        console.log(parseInt(new Date()));
+        console.log('NaN의 타입 : ' + typeof NaN); // 숫자가 아니라는 의미를 지닌 Number타입이다
+        
+        // parseFloat()도 있다
+        console.log(parseFloat(123.1234));
+
+        //parse 대신 Number()를 사용 가능
+        console.log(Number('123'));
+        console.log(Number('123.12345'));
+
+        // true/false도 숫자 타입으로 변환 가능
+        // parseInt로는 불가능 하고, Number로 가능
+        console.log(Number(true)); //true는 1이다
+        console.log(Number(false)); //false는 0이다
+
+        // while(true)와 같음
+        let i = 0;
+
+        while (1) { // while (true) 대신 while (1)을 많이 쓴다 (Java에서는 안됨)
+            console.log('Hello!!', i++);
+
+            if (i== 100) {
+                break;
+            }
+        }
+
+        // Date를 Number()로 변환하면 Unix Time이 된다
+        console.log('Unix Time (Now): ', Number(new Date()));
+     
+        // toString() : 숫자 타입을 문자 타입으로 변환
+        const num = 3333;
+        console.log(num.toString());
+        console.log('radix 2\t: ', num.toString(2)); // 2진수
+        console.log('radix 8\t: ', num.toString(8)); // 8진수
+        console.log('radix 16: ', num.toString(16)); // 16진수
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,21 @@
+dl > dt + dd:last-child{
+    color:orange;
+    font-size: 1.1rem;
+}
+
+#dt1{
+    /* 인라인이기 때문에 여기서 바꿔도 바뀌지 않는다 */
+    font-size:11px;
+}
+
+#dt2 {
+    color:chartreuse;
+    background-color:black;
+}
+
+
+#dt3 {
+    color:blue;
+    font-size: 35px;
+    font-weight:bold;
+}
